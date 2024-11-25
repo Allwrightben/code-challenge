@@ -17,7 +17,7 @@ textarea {
 iframe {
     width: 45%;
     height: 400px;
-    border: 1px solid #ddd;
+    border: 5px solid black;
     background: white;
 }
 
