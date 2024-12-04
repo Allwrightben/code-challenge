@@ -27,3 +27,11 @@ iframe {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+#themeSelector {
+    width: 100px;
+}
+
+#checkButton {
+    width: 200px;
+}

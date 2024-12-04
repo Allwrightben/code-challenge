@@ -15,6 +15,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/theme/eclipse.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/theme/monokai.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"></script>
 
     <title>Learning People | Code Challenge</title>
 </head>
@@ -24,7 +29,7 @@
         <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="" class="nav-link main-logo-link">
-                    <h2 class="dancing-script-font my-0">Learning People | Code Challenge</h2>
+                    <h2 class="">Learning People | Code Challenge</h2>
                 </a>
             </div>
         </div>
@@ -39,8 +44,19 @@
             <!-- Left Column -->
             <div class="col-lg-6">
                 <div class="form-group">
-                    <label for="code"><strong>Write your HTML code:</strong></label>
-                    <textarea id="code" class="form-control mb-3" rows="10">
+                    <div class="row">
+                        <div class="col">
+                            <label for="code"><strong>Write your HTML code:</strong></label>
+                        </div>
+                        <div class="col">
+                            <select id="themeSelector" class="form-control mb-3">
+                                <option value="eclipse">Light</option>
+                                <option value="monokai">Dark</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <textarea id="editor" class="form-control mb-3" rows="10">
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,24 +70,70 @@
                     </textarea>
                 </div>
                 <label for="output"><strong>Output:</strong></label>
-                <iframe id="output" class="w-100" style="height: 200px; border: 1px solid #ccc;"></iframe>
+                <button id="runButton" class="btn btn-primary">Run Code</button>
+                <iframe id="outputBox" class="w-100 mt-3" style="border: 1px solid #ccc; height: 300px;"></iframe>
+
+
             </div>
-    
+
             <!-- Right Column -->
             <div class="col-lg-6 mt-2">
-                <h4>Instructions</h4>
+                <h4>Instructions:</h4>
                 <p>Let's build your first web page by writing some HTML code in the editor on the left.</p>
-                <h3>Steps</h3>
+                <h3>Steps:</h3>
                 <ol>
-                    <li>Write "Hello, World!" in the <code>&lt;h1&gt;</code> element.</li>
-                    <li>Write "This is my first webpage" in the <code>&lt;p&gt;</code> element</li>
-                    <li>Your output should look like this<br><img src="chal1example.PNG" alt="image of completed challenge"></li>
+                    <li>Write "Hello, World!" in the <code>&lt;h1&gt;</code> element on line 7.</li>
+                    <li>Write "This is my first webpage" in the <code>&lt;p&gt;</code> element on line 8.</li>
+                    <li>Your output should look like this<br><img src="chal1example.PNG"
+                            alt="image of completed challenge"></li>
                 </ol>
+                <p>Hint: The test is case sensitive</p>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <button id="checkButton" class="btn btn-primary">Check Code</button>
+    <div id="feedback" class="mt-3"></div>
+
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            mode: 'htmlmixed',
+            lineNumbers: true,
+            tabSize: 2,
+            theme: 'Monokai',
+        });
+
+        document.getElementById('runButton').addEventListener('click', () => {
+            const userCode = editor.getValue(); // Get the user's code from CodeMirror
+            const outputIframe = document.getElementById('outputBox');
+
+            // Write the user's code into the iframe
+            const iframeDocument = outputIframe.contentDocument || outputIframe.contentWindow.document;
+            iframeDocument.open();
+            iframeDocument.write(userCode);
+            iframeDocument.close();
+        });
+
+        // Function to change the theme dynamically
+        document.getElementById('themeSelector').addEventListener('change', (event) => {
+            const selectedTheme = event.target.value;
+            editor.setOption('theme', selectedTheme); // Update the theme dynamically
+        });
+
+        document.getElementById('checkButton').addEventListener('click', () => {
+            const outputIframe = document.getElementById('outputBox');
+            const iframeDocument = outputIframe.contentDocument || outputIframe.contentWindow.document;
+
+            const h1 = iframeDocument.querySelector('h1');
+            const p = iframeDocument.querySelector('p');
+
+            if (h1 && h1.textContent === 'Hello, World!' && p && p.textContent === 'This is my first webpage') {
+                document.getElementById('feedback').innerHTML = '<div class="alert alert-success" role="alert">Well done! You have just built your first webpage!.</div>';
+            } else {
+                document.getElementById('feedback').innerHTML = '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';
+            }
+        });
+    </script>
 </body>
 
 </html>
