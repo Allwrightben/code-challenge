@@ -35,3 +35,7 @@ iframe {
 #checkButton {
     width: 200px;
 }
+
+.pull-right {
+    right: 0;
+}
