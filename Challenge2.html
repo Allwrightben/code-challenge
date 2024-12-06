@@ -86,18 +86,22 @@
             <!-- Right Column -->
             <div class="col-lg-6 mt-2">
                 <h4>Instructions:</h4>
-                <p>In this challenge you will learn how to use <code>&lt;em&gt;</code> for <em>emphasis</em> and <code>&lt;strong&gt;</code> for <strong>bold.</strong></p>
+                <p>In this challenge you will learn how to use <code>&lt;em&gt;</code> for <em>emphasis</em> and
+                    <code>&lt;strong&gt;</code> for <strong>bold.</strong></p>
                 <h3>Steps:</h3>
                 <ol>
-                    <li>Create an <code>&lt;p&gt;</code> element on line 7 and give it the content "The quick brown fox jumps over the lazy dog"</li>
+                    <li>Create an <code>&lt;p&gt;</code> element on line 7 and give it the content "The quick brown fox
+                        jumps over the lazy dog"</li>
                     <li>Wrap the "quick" in a <code>&lt;em&gt;</code> element</li>
-                    <li>Create an <code>&lt;p&gt;</code> element on line 8 and give it the content "Please remember to bring your laptop tomorrow"</li>
+                    <li>Create an <code>&lt;p&gt;</code> element on line 8 and give it the content "Please remember to
+                        bring your laptop tomorrow"</li>
                     <li>Wrap the word "laptop" in a <code>&lt;strong&gt;</code> element</li>
-                    <li>Your output should look like this<br><img src="chal1example.PNG"
+                    <li>Your output should look like this<br><img src="chal2example.PNG"
                             alt="image of completed challenge"></li>
                 </ol>
                 <p>Hint: The test is case sensitive</p>
-                <p>Hint: When we say wrap a word in an <code>&lt;em&gt;</code> element, here's an example of how it should look 
+                <p>Hint: When we say wrap a word in an <code>&lt;em&gt;</code> element, here's an example of how it
+                    should look
                     <code>&lt;em&gt;</code>quick<code>&lt;/em&gt;</code></p>
             </div>
         </div>
@@ -135,13 +139,36 @@
             const outputIframe = document.getElementById('outputBox');
             const iframeDocument = outputIframe.contentDocument || outputIframe.contentWindow.document;
 
-            const h1 = iframeDocument.querySelector('h1');
-            const p = iframeDocument.querySelector('p');
+            const pElements = iframeDocument.querySelectorAll('p');
 
-            if (p && p.textContent === 'The quick brown fox jumps over the lazy dog' && p && p.textContent === 'Please remember to bring your laptop tomorrow') {
-                document.getElementById('feedback').innerHTML = '<div class="alert alert-success" role="alert">Well done! You have just built your first webpage!.</div>';
+            if (pElements.length === 2) {
+                const firstP = pElements[0];
+                const secondP = pElements[1];
+
+                // Check the first paragraph
+                const emElement = firstP.querySelector('em');
+                const isFirstPCorrect =
+                    firstP.textContent === 'The quick brown fox jumps over the lazy dog' &&
+                    emElement &&
+                    emElement.textContent === 'quick';
+
+                // Check the second paragraph
+                const strongElement = secondP.querySelector('strong');
+                const isSecondPCorrect =
+                    secondP.textContent === 'Please remember to bring your laptop tomorrow' &&
+                    strongElement &&
+                    strongElement.textContent === 'laptop';
+
+                if (isFirstPCorrect && isSecondPCorrect) {
+                    document.getElementById('feedback').innerHTML =
+                        '<div class="alert alert-success" role="alert">Well done! you got it right!</div>';
+                } else {
+                    document.getElementById('feedback').innerHTML =
+                        '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';
+                }
             } else {
-                document.getElementById('feedback').innerHTML = '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';
+                document.getElementById('feedback').innerHTML =
+                    '<div class="alert alert-danger" role="alert">Make sure you have exactly two <p> elements!</div>';
             }
         });
     </script>
