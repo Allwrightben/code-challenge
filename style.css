@@ -36,6 +36,37 @@ iframe {
     width: 200px;
 }
 
-.pull-right {
-    right: 0;
+.title-background {
+    background: lightblue;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.letter {
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.letter:first-child { color: red; }
+.letter:nth-child(2) { color: blue; }
+.letter:nth-child(3) { color: green; }
+.letter:nth-child(4) { color: yellow; }
+.letter:nth-child(5) { color: orange; }
+.letter:nth-child(6) { color: purple; }
+.letter:nth-child(7) { color: brown; }
+.letter:nth-child(8) { color: gray; }
+.letter:nth-child(9) { color: black; }
+.letter:nth-child(10) { color: white; }
+.letter:nth-child(11) { color: cyan; }
+.letter:nth-child(12) { color: magenta; }
+.letter:nth-child(13) { color: olive; }
+.letter:nth-child(14) { color: teal; }
+.letter:nth-child(15) { color: lime; }
+.letter:nth-child(16) { color: ivory; }
+.letter:nth-child(17) { color: navy; }
+.letter:nth-child(18) { color: purple; }
+.letter:nth-child(19) { color: silver; }
+.letter:nth-child(20) { color: white; }
+.letter:nth-child(21) { color: lime; }
+.letter:nth-child(22) { color: lightcoral; }

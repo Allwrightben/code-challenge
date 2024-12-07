@@ -40,7 +40,7 @@
             <a href="challenge1.html" class="btn btn-primary">Back</a>
         </div>
         <div class="col-auto ml-auto">
-            <a href="" class="btn btn-primary">Next</a>
+            <a href="chal3intro.html" class="btn btn-primary">Next</a>
         </div>
     </div>
 
@@ -70,7 +70,7 @@
         <title>Challenge 2</title>
     </head>
     <body>
-    
+        <h2>Boldly Go, With Emphasis!</h2>
 
     </body>
 </html>
@@ -86,29 +86,36 @@
             <!-- Right Column -->
             <div class="col-lg-6 mt-2">
                 <h4>Instructions:</h4>
-                <p>In this challenge you will learn how to use <code>&lt;em&gt;</code> for <em>emphasis</em> and
+                <p>Sometimes in text you need to make a word or sentence stand out. 
+                    In this challenge you will learn how to make a word or sentence emphasised or bold by using <code>&lt;em&gt;</code> for <em>emphasis</em> and
                     <code>&lt;strong&gt;</code> for <strong>bold.</strong></p>
                 <h3>Steps:</h3>
                 <ol>
-                    <li>Create an <code>&lt;p&gt;</code> element on line 7 and give it the content "The quick brown fox
+                    <li>Create a <code>&lt;p&gt;</code> element below the <code>&lt;h2&gt;</code> element and give it the content "The quick brown fox
                         jumps over the lazy dog"</li>
-                    <li>Wrap the "quick" in a <code>&lt;em&gt;</code> element</li>
-                    <li>Create an <code>&lt;p&gt;</code> element on line 8 and give it the content "Please remember to
+                    <li>Wrap the word "quick" in a <code>&lt;em&gt;</code> element (<code>&lt;em&gt;</code>quick<code>&lt;/em&gt;</code>)</li>
+                    <li>Create another <code>&lt;p&gt;</code> element and give it the content "Please remember to
                         bring your laptop tomorrow"</li>
                     <li>Wrap the word "laptop" in a <code>&lt;strong&gt;</code> element</li>
                     <li>Your output should look like this<br><img src="chal2example.PNG"
                             alt="image of completed challenge"></li>
                 </ol>
                 <p>Hint: The test is case sensitive</p>
-                <p>Hint: When we say wrap a word in an <code>&lt;em&gt;</code> element, here's an example of how it
-                    should look
-                    <code>&lt;em&gt;</code>quick<code>&lt;/em&gt;</code></p>
+                <p>Hint: When we say wrap a word in an <code>&lt;em&gt;</code> element, here's an example of how it should look
+                    <code>&lt;em&gt;</code>quick<code>&lt;/em&gt;</code> it's the same with <code>&lt;strong&gt;</code>
+                </p>
             </div>
         </div>
     </div>
 
-    <button id="checkButton" class="btn btn-primary">Check Code</button>
-    <div id="feedback" class="mt-3"></div>
+    <div class="row">
+        <div class="col">
+            <button id="checkButton" class="btn btn-primary">Check Code</button>
+        </div>
+        <div class="col">
+            <div id="feedback"></div>
+        </div>
+    </div>
 
     <script>
         const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {

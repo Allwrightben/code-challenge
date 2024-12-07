@@ -37,14 +37,14 @@
 
     <div class="row">
         <div class="col">
-            <a href="index.html" class="btn btn-primary">Back</a>
+            <a href="challenge2.html" class="btn btn-primary">Back</a>
         </div>
         <div class="col-auto ml-auto">
-            <a href="Challenge2.html" class="btn btn-primary">Next</a>
+            <a href="" class="btn btn-primary">Next</a>
         </div>
     </div>
 
-    <h1 class="text-center">Challenge 1</h1>
+    <h1 class="text-center">Challenge 3</h1>
 
     <div class="container-fluid mt-4">
         <div class="row">
@@ -67,11 +67,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My First Web Page</title>
+        <title>Challenge 2</title>
+        <style>
+            body {font-size: 25px}
+            
+        </style>
     </head>
     <body>
-        <h1></h1>
-        <p></p>
+        <h2>Boldly Go, With Emphasis!</h2>
+        <p>The <em>quick</em> brown fox jumps over the lazy dog</p>
+        <p>Please remember to bring your <strong>laptop</strong> tomorrow</p>
+
     </body>
 </html>
                     </textarea>
@@ -86,23 +92,18 @@
             <!-- Right Column -->
             <div class="col-lg-6 mt-2">
                 <h4>Instructions:</h4>
-                <p>The term "Hello, World!" is a coding convention, it's usually the first thing you will write when learning a new coding language.
-                    We've added some template HTML to help you get started.
-                    Let's build your first web page by writing some HTML code in the editor on the left.
-                </p>
+                <p>In this challenge, you will style a simple webpage using CSS.</p>
                 <h3>Steps:</h3>
                 <ol>
-                    <li>Write "Hello, World!" in the <code>&lt;h1&gt;</code> element on line 7.</li>
-                    <li>Write "This is my first webpage" in the <code>&lt;p&gt;</code> element on line 8.</li>
-                    <li>Hit the "Run code" button to see the result.</li>
-                    <li>Your output should look like this<br><img src="chal1example.PNG"
-                            alt="image of completed challenge"></li>
-                    <li>Finally, hit the "Check code" button to see if it's correct.</li>
+                    <li>Set the background color of the webpage to <code>lightblue</code>.</li>
+                    <li>Style the <code>&lt;h1&gt;</code> element to have a text color of <code>green</code> and a font size of <code>24px</code>.</li>
+                    <li>Your output should match the expected appearance shown below:<br><img src="chal3example.PNG" alt="example of the styled output"></li>
                 </ol>
-                <p>Hint: The test is case sensitive.</p>
+                <p>Hint: Use CSS selectors for <code>body</code> and <code>h1</code>.</p>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col">
             <button id="checkButton" class="btn btn-primary">Check Code</button>
@@ -111,8 +112,6 @@
             <div id="feedback"></div>
         </div>
     </div>
-    
-    
 
     <script>
         const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
@@ -143,13 +142,36 @@
             const outputIframe = document.getElementById('outputBox');
             const iframeDocument = outputIframe.contentDocument || outputIframe.contentWindow.document;
 
-            const h1 = iframeDocument.querySelector('h1');
-            const p = iframeDocument.querySelector('p');
+            const pElements = iframeDocument.querySelectorAll('p');
 
-            if (h1 && h1.textContent === 'Hello, World!' && p && p.textContent === 'This is my first webpage') {
-                document.getElementById('feedback').innerHTML = '<div class="alert alert-success" role="alert">Well done! You have just built your first webpage!.</div>';
+            if (pElements.length === 2) {
+                const firstP = pElements[0];
+                const secondP = pElements[1];
+
+                // Check the first paragraph
+                const emElement = firstP.querySelector('em');
+                const isFirstPCorrect =
+                    firstP.textContent === 'The quick brown fox jumps over the lazy dog' &&
+                    emElement &&
+                    emElement.textContent === 'quick';
+
+                // Check the second paragraph
+                const strongElement = secondP.querySelector('strong');
+                const isSecondPCorrect =
+                    secondP.textContent === 'Please remember to bring your laptop tomorrow' &&
+                    strongElement &&
+                    strongElement.textContent === 'laptop';
+
+                if (isFirstPCorrect && isSecondPCorrect) {
+                    document.getElementById('feedback').innerHTML =
+                        '<div class="alert alert-success" role="alert">Well done! you got it right!</div>';
+                } else {
+                    document.getElementById('feedback').innerHTML =
+                        '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';
+                }
             } else {
-                document.getElementById('feedback').innerHTML = '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';
+                document.getElementById('feedback').innerHTML =
+                    '<div class="alert alert-danger" role="alert">Make sure you have exactly two <p> elements!</div>';
             }
         });
     </script>
