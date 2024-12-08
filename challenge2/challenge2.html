@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <script src="https://kit.fontawesome.com/653351ba45.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- Ace Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
+    <title>Learning People | Code Challenge</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100 background">
+    <header class="container-fluid">
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="" class="nav-link main-logo-link">
+                    <h2 class="">Learning People | Code Challenge</h2>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col">
+            <a href="/challenge1/challenge1.html" class="btn btn-primary">Back</a>
+        </div>
+        <div class="col-auto ml-auto">
+            <a href="/challenge3/chal3intro.html" class="btn btn-primary">Next</a>
+        </div>
+    </div>
+
+    <h1 class="text-center">Challenge 2</h1>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-6">
+                <label for="editor"><strong>Write your HTML code:</strong></label>
+                <div id="editor" style="height: 300px; border: 1px solid #ccc;"></div>
+                <label for="output"><strong>Output:</strong></label>
+                <button id="runButton" class="btn btn-primary mt-3">Run Code</button>
+                <iframe id="outputBox" class="w-100 mt-3" style="border: 1px solid #ccc; height: 300px;"></iframe>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-6 mt-2">
+                <h4>Instructions:</h4>
+                <p>Sometimes in text you need to make a word or sentence stand out. 
+                    In this challenge you will learn how to make a word or sentence emphasised or bold by using <code>&lt;em&gt;</code> for <em>emphasis</em> and
+                    <code>&lt;strong&gt;</code> for <strong>bold.</strong></p>
+                <h3>Steps:</h3>
+                <ol>
+                    <li>Create a <code>&lt;p&gt;</code> element below the <code>&lt;h2&gt;</code> element and give it the content "The quick brown fox
+                        jumps over the lazy dog"</li>
+                    <li>Wrap the word "quick" in a <code>&lt;em&gt;</code> element (<code>&lt;em&gt;</code>quick<code>&lt;/em&gt;</code>)</li>
+                    <li>Create another <code>&lt;p&gt;</code> element and give it the content "Please remember to
+                        bring your laptop tomorrow"</li>
+                    <li>Wrap the word "laptop" in a <code>&lt;strong&gt;</code> element</li>
+                    <li>Your output should look like this<br><img src="/assets/images/chal2example.PNG"
+                            alt="image of completed challenge"></li>
+                </ol>
+                <p>Hint: The test is case sensitive</p>
+                <p>Hint: When we say wrap a word in an <code>&lt;em&gt;</code> element, here's an example of how it should look
+                    <code>&lt;em&gt;</code>quick<code>&lt;/em&gt;</code> it's the same with <code>&lt;strong&gt;</code>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button id="checkButton" class="btn btn-primary">Check Code</button>
+        </div>
+        <div class="col">
+            <div id="feedback"></div>
+        </div>
+    </div>
+
+    <script src="/assets/js/chal2.js"></script>
+</body>
+
+</html>
