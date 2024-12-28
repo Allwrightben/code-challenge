@@ -9,10 +9,8 @@ const initialContent = `<!DOCTYPE html>
 <head>
     <title>My First Web Page</title>
     <style>
-        body {background: blue}
-        h2 {color: red}
-        h3 {font-size: 12px}
-        h4 {font-size: 30px}
+        body {background: gold}
+        
     </style>
 </head>
 <body>
@@ -45,35 +43,61 @@ document.getElementById('checkButton').addEventListener('click', () => {
     const outputIframe = document.getElementById('outputBox');
     const iframeDocument = outputIframe.contentDocument || outputIframe.contentWindow.document;
 
-    const pElements = iframeDocument.querySelectorAll('p');
+    const feedbackDiv = document.getElementById('feedback');
+    feedbackDiv.innerHTML = ''; // Clear previous feedback
 
-    if (pElements.length === 2) {
-        const firstP = pElements[0];
-        const secondP = pElements[1];
+    const errors = [];
 
-        // Check the first paragraph
-        const emElement = firstP.querySelector('em');
-        const isFirstPCorrect =
-            firstP.textContent === 'The quick brown fox jumps over the lazy dog' &&
-            emElement &&
-            emElement.textContent === 'quick';
+    // Check body background color
+    const bodyStyle = getComputedStyle(iframeDocument.body).backgroundColor;
 
-        // Check the second paragraph
-        const strongElement = secondP.querySelector('strong');
-        const isSecondPCorrect =
-            secondP.textContent === 'Please remember to bring your laptop tomorrow' &&
-            strongElement &&
-            strongElement.textContent === 'laptop';
+    // Normalize 'pink' to its RGB equivalent
+    const pinkRGB = 'rgb(255, 192, 203)';
 
-        if (isFirstPCorrect && isSecondPCorrect) {
-            document.getElementById('feedback').innerHTML =
-                '<div class="alert alert-success" role="alert">Well done! you got it right! move on to the next one.</div>';
-        } else {
-            document.getElementById('feedback').innerHTML =
-                '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';
-        }
-    } else {
+    if (bodyStyle !== pinkRGB) {
+        errors.push("The background color of the webpage should be 'pink'.");
+    }
+
+    // Check h2 color
+    const h2Element = iframeDocument.querySelector('h2');
+    const h2Style = getComputedStyle(h2Element).color;
+    if (h2Style !== 'rgb(255, 0, 0)') { // 'red' as rgb
+        errors.push("The color of the h2 element should be 'red'.");
+    }
+
+    // Check h3 font size
+    const h3Element = iframeDocument.querySelector('h3');
+    const h3Style = getComputedStyle(h3Element).fontSize;
+    if (h3Style !== '15px') {
+        errors.push("The font size of the h3 element should be '15px'.");
+    }
+
+    // Check h4 font size
+    const h4Element = iframeDocument.querySelector('h4');
+    const h4Style = getComputedStyle(h4Element).fontSize;
+    if (h4Style !== '30px') {
+        errors.push("The font size of the h4 element should be '30px'.");
+    }
+
+    // Check h5 font family
+    const h5Element = iframeDocument.querySelector('h5');
+    const h5Style = getComputedStyle(h5Element).fontFamily;
+    if (!h5Style.toLowerCase().includes('arial')) {
+        errors.push("The font family of the h5 element should be 'Arial'.");
+    }
+
+    // Check h6 text transform
+    const h6Element = iframeDocument.querySelector('h6');
+    const h6Style = getComputedStyle(h6Element).textTransform;
+    if (h6Style !== 'uppercase') {
+        errors.push("The text transform of the h6 element should be 'uppercase'.");
+    }
+
+    // Provide feedback to the user
+    if (errors.length === 0) {
         document.getElementById('feedback').innerHTML =
-            '<div class="alert alert-danger" role="alert">Make sure you have exactly two <code>&lt;p&gt;</code> elements!</div>';
+            '<div class="alert alert-success" role="alert">That is correct! Well done!</div>';
+    } else {
+        feedbackDiv.innerHTML = "<div class='text-danger'>" + errors.join('<br>') + "</div>";
     }
 });
