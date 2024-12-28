@@ -8,11 +8,20 @@ const initialContent = `<!DOCTYPE html>
 <html>
 <head>
     <title>My First Web Page</title>
+    <style>
+        body {background: blue}
+        h2 {color: red}
+        h3 {font-size: 12px}
+        h4 {font-size: 30px}
+    </style>
 </head>
 <body>
-    <h2>Boldly Go, With Emphasis!</h2>
-    
-
+    <h1>Adding Some Style!</h1>
+    <h2>A splash of colour?</h2>
+    <h3>Why not make things smaller?</h3>
+    <h4>Or bigger?</h4>
+    <h5>How about a different font?</h5>
+    <h6>Maybe uppercase?</h6>
 </body>
 </html>`;
 
