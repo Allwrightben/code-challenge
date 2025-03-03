@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <script src="https://kit.fontawesome.com/653351ba45.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- Ace Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+
+    <title>Learning People | Code Challenge</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100 background">
+    <header class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="text-left">
+            <a href="https://www.learningpeople.com/uk/career-paths/full-stack-software-developer/"
+                class="nav-link main-logo-link">
+                <img src="../assets/images/LP-black-logo-small.webp" alt="Company logo" class="img-fluid"
+                    style="max-width: 200px; height: auto;">
+            </a>
+        </div>
+        <div class="text-right">
+            <a href="https://www.learningpeople.com/uk/career-paths/full-stack-software-developer/"
+                class="nav-link main-logo-link">
+                <img src="../assets/images/5step.png" alt="html logo" class="img-fluid"
+                    style="max-width: 125px; height: auto;">
+            </a>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col">
+            <a href="../challenge3/challenge3.html" class="btn btn-primary">Back</a>
+        </div>
+        <div class="col-auto ml-auto d-none">
+            <a href="../challenge4/challenge4.html" class="btn btn-primary">Next</a>
+        </div>
+    </div>
+
+    <div class="text-center p-4 bg-light rounded shadow-sm">
+        <h2 class="mb-3 text-primary">Well done for getting this far!</h2>
+
+        <h3 class="mb-4 text-muted">
+            This website was built for the sole reason of giving people a taste of what it is to be a coder.
+            I hope you have enjoyed the challenges so far. Please check back with your career consultant to continue
+            talking about your future in coding.
+        </h3>
+
+        <p class="text-dark font-weight-bold">This website was built by, and is the property of Ben Allwright.</p>
+    </div>
+
+    <div class="container-fluid mt-4 d-none">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-6">
+                <label for="editor"><strong>Write your code here:</strong></label>
+                <div id="editor" style="height: 350px; border: 1px solid #ccc;"></div>
+                <label for="output"><strong>Output:</strong></label>
+                <button id="runButton" class="btn btn-primary mt-3">Run Code</button>
+                <iframe id="outputBox" class="w-100 mt-3" style="border: 1px solid #ccc; height: 350px;"></iframe>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-6 mt-2">
+                <h4>Instructions:</h4>
+                <p>In this challenge, you will learn to style a simple webpage using CSS. We've added some
+                    HTML elements for you to style, h1, h2, h3, h4, h5 and h6.
+                </p>
+                <p><strong>Remember:</strong> In CSS you need the target something e.g <code>h2</code>,
+                    tell it what you want to change e.g <code>color</code>
+                    and tell it what you want to change it to e.g <code>red</code>.
+                    so as an example <code>h2 {color: red}</code> would change the color of all <code>h2</code> elements
+                    to red.
+                </p>
+                <h3>Steps:</h3>
+                <ol>
+                    <li>Run the code to see what you are working with</li>
+                    <li>Set the background color of the webpage to <code>pink</code>.</li>
+                    <ul>
+                        <li>We've added the first CSS rule for you to help get you started on line 6</li>
+                        <li>change the gold to pink</li>
+                        <li>Run code</li>
+                    </ul>
+                    <li>create a rule for the <code>h2</code> element and change the <code>color</code> to
+                        <code>red</code>
+                    </li>
+                    <ul>
+                        <li>Run code</li>
+                    </ul>
+                    <li>Create a rule for the <code>h3</code> element and change the <code>font-size</code> to
+                        <code>15px</code> (15 pixels)</li>
+                    <ul>
+                        <li>Run code</li>
+                    </ul>
+                    <li>Create a rule for the <code>h4</code> element and change the <code>font-size</code> to
+                        <code>30px</code> (30 pixels)</li>
+                    <ul>
+                        <li>Run code</li>
+                    </ul>
+                    <li>Create a rule for the <code>h5</code> element and change the <code>font-family</code> to
+                        <code>arial</code></li>
+                    <ul>
+                        <li>Run code</li>
+                    </ul>
+                    <li>Create a rule for the <code>h6</code> element and change the <code>text-transform</code> to
+                        <code>uppercase</code></li>
+                    <ul>
+                        <li>Run code</li>
+                        <li>Check Code</li>
+                    </ul>
+
+                </ol>
+                <p>Your result should look like this:</p>
+                <img src="../assets/images/chal3example.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-none">
+        <div class="col">
+            <button id="checkButton" class="btn btn-primary">Check Code</button>
+        </div>
+        <div class="col">
+            <div id="feedback"></div>
+        </div>
+    </div>
+
+    <script src="../assets/js/chal3.js"></script>
+</body>
+
+</html>
