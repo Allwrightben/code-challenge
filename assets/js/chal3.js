@@ -38,6 +38,9 @@ document.getElementById("runButton").addEventListener("click", () => {
     iframeDocument.close();
 });
 
+// Hide the "Next" button initially
+document.getElementById("nextButton").style.display = "none";
+
 // Check Code Button
 document.getElementById('checkButton').addEventListener('click', () => {
     const outputIframe = document.getElementById('outputBox');
@@ -97,6 +100,7 @@ document.getElementById('checkButton').addEventListener('click', () => {
     if (errors.length === 0) {
         document.getElementById('feedback').innerHTML =
             '<div class="alert alert-success" role="alert">That is correct! Well done!</div>';
+            document.getElementById("nextButton").style.display = "block";
     } else {
         feedbackDiv.innerHTML = "<div class='text-danger'>" + errors.join('<br>') + "</div>";
     }

@@ -44,7 +44,7 @@
             <a href="../challenge3/chal3intro.html" class="btn btn-primary">Back</a>
         </div>
         <div class="col-auto ml-auto">
-            <a href="../challenge4/challenge4.html" class="btn btn-primary">Next</a>
+            <a href="../challenge4/challenge4.html" id="nextButton" class="btn btn-primary">Next</a>
         </div>
     </div>
 
@@ -59,6 +59,14 @@
                 <label for="output"><strong>Output:</strong></label>
                 <button id="runButton" class="btn btn-primary mt-3">Run Code</button>
                 <iframe id="outputBox" class="w-100 mt-3" style="border: 1px solid #ccc; height: 350px;"></iframe>
+                <div class="row">
+                    <div class="col">
+                        <button id="checkButton" class="btn btn-primary">Check Code</button>
+                    </div>
+                    <div class="col">
+                        <div id="feedback"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Right Column -->
@@ -113,15 +121,6 @@
                 <p>Your result should look like this:</p>
                 <img src="../assets/images/chal3example.png" alt="">
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <button id="checkButton" class="btn btn-primary">Check Code</button>
-        </div>
-        <div class="col">
-            <div id="feedback"></div>
         </div>
     </div>
 

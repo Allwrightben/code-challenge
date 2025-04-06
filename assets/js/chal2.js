@@ -31,6 +31,9 @@ document.getElementById("runButton").addEventListener("click", () => {
     iframeDocument.close();
 });
 
+// Hide the "Next" button initially
+document.getElementById("nextButton").style.display = "none";
+
 // Check Code Button
 document.getElementById('checkButton').addEventListener('click', () => {
     const outputIframe = document.getElementById('outputBox');
@@ -59,6 +62,8 @@ document.getElementById('checkButton').addEventListener('click', () => {
         if (isFirstPCorrect && isSecondPCorrect) {
             document.getElementById('feedback').innerHTML =
                 '<div class="alert alert-success" role="alert">Well done! you got it right! move on to the next one.</div>';
+                // Show the "Next" button
+            document.getElementById("nextButton").style.display = "block";
         } else {
             document.getElementById('feedback').innerHTML =
                 '<div class="alert alert-danger" role="alert">Oops! Your code is incorrect. Please try again.</div>';

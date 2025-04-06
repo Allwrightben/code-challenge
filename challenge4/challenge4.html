@@ -43,100 +43,87 @@
         <div class="col">
             <a href="../challenge3/challenge3.html" class="btn btn-primary">Back</a>
         </div>
-        <div class="col-auto ml-auto d-none">
-            <a href="../challenge4/challenge4.html" class="btn btn-primary">Next</a>
+        <div class="col-auto ml-auto">
+            <a href="../final.html" id="nextButton" class="btn btn-primary">Next</a>
         </div>
     </div>
 
-    <div class="text-center p-4 bg-light rounded shadow-sm">
-        <h2 class="mb-3 text-primary">Well done for getting this far!</h2>
+    <h1 class="text-center">Challenge 4</h1>
 
-        <h3 class="mb-4 text-muted">
-            This website was built for the sole reason of giving people a taste of what it is to be a coder.
-            I hope you have enjoyed the challenges so far. Please check back with your career consultant to continue
-            talking about your future in coding.
-        </h3>
-
-        <p class="text-dark font-weight-bold">This website was built by, and is the property of Ben Allwright.</p>
-    </div>
-
-    <div class="container-fluid mt-4 d-none">
+    <div class="container-fluid mt-4">
         <div class="row">
             <!-- Left Column -->
             <div class="col-lg-6">
                 <label for="editor"><strong>Write your code here:</strong></label>
-                <div id="editor" style="height: 350px; border: 1px solid #ccc;"></div>
+                <div id="editor" style="height: 400px; border: 1px solid #ccc;"></div>
                 <label for="output"><strong>Output:</strong></label>
                 <button id="runButton" class="btn btn-primary mt-3">Run Code</button>
-                <iframe id="outputBox" class="w-100 mt-3" style="border: 1px solid #ccc; height: 350px;"></iframe>
+                <iframe id="outputBox" class="w-100 mt-3" style="border: 1px solid #ccc; height: 400px;"></iframe>
+                <div class="row">
+                    <div class="col">
+                        <button id="checkButton" class="btn btn-primary">Check Code</button>
+                    </div>
+                    <div class="col">
+                        <div id="feedback"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Right Column -->
             <div class="col-lg-6 mt-2">
                 <h4>Instructions:</h4>
-                <p>In this challenge, you will learn to style a simple webpage using CSS. We've added some
-                    HTML elements for you to style, h1, h2, h3, h4, h5 and h6.
+                <p>
+                    So, you've learnt how to use CSS to target html elements to style them. But what if you have
+                    multiples of the same element and you only want to style some of them? Well, you can use
+                    classes to target specific elements.
                 </p>
-                <p><strong>Remember:</strong> In CSS you need the target something e.g <code>h2</code>,
-                    tell it what you want to change e.g <code>color</code>
-                    and tell it what you want to change it to e.g <code>red</code>.
-                    so as an example <code>h2 {color: red}</code> would change the color of all <code>h2</code> elements
-                    to red.
+                <p>
+                    An HTML class is a way to create a set of CSS rules that you can then aplly to 
+                    any element you want.
+                </p>
+                <p>
+                    Now, remember how we target an element e.g <code>h1 {text-transform: uppercase}</code>,
+                    well a class is similar, it looks like this <code>.textred {color: red}</code>, you can call it
+                    what ever you want (in this case textred) and then to apply that class to an element you just add 
+                    the class name to the epening tag like this: <code>&lt;h1 class="textred"&gt;Hello World&lt;/h1&gt;</code>. 
+                    This will make the text red. see how the class goes inside the opening tag of the element? this is how 
+                    classes work.
                 </p>
                 <h3>Steps:</h3>
                 <ol>
                     <li>Run the code to see what you are working with</li>
-                    <li>Set the background color of the webpage to <code>pink</code>.</li>
+                    <li>In the Style element, under the the <code>h1</code> rule creat a new class called textred</li>
                     <ul>
-                        <li>We've added the first CSS rule for you to help get you started on line 6</li>
-                        <li>change the gold to pink</li>
-                        <li>Run code</li>
+                        <li>A CSS class always starts with "<strong>.</strong>" and then what ever you want to name your class</li>
+                        <li>Name your class .textred</li>
+                        <li>then set the color to red</li>
+                        <li>Your class should like lie this <code>.textred {color: red}</code></li>
                     </ul>
-                    <li>create a rule for the <code>h2</code> element and change the <code>color</code> to
-                        <code>red</code>
+                    <li>Now lets apply your "textred" class to the first two <code>h2</code> elements.
                     </li>
                     <ul>
-                        <li>Run code</li>
+                        <li>The first <code>h2</code> element shouold look like this <code>&lt;h2 class="textred"&gt;1. The Rise of AI&lt;/h2&gt;</code></li>
+                        <li>The second <code>h2</code> element shouold look like this <code>&lt;h2 class="textred"&gt;2. AI in Everyday Life&lt;/h2&gt;</code></li>
+                        <li>Run your code and you should see the them turn red now.</li>
                     </ul>
-                    <li>Create a rule for the <code>h3</code> element and change the <code>font-size</code> to
-                        <code>15px</code> (15 pixels)</li>
+                    <li>Now create a new class under your textred class and call it textblue</li>
                     <ul>
-                        <li>Run code</li>
+                        <li>your new class should look like this <code>.textblue {color: blue}</code></li>
                     </ul>
-                    <li>Create a rule for the <code>h4</code> element and change the <code>font-size</code> to
-                        <code>30px</code> (30 pixels)</li>
+                    <li>lets now apply this class to the last two <code>h2</code> elements</li>
                     <ul>
-                        <li>Run code</li>
+                        <li>Run code and you should see them turn blue!</li>
                     </ul>
-                    <li>Create a rule for the <code>h5</code> element and change the <code>font-family</code> to
-                        <code>arial</code></li>
-                    <ul>
-                        <li>Run code</li>
-                    </ul>
-                    <li>Create a rule for the <code>h6</code> element and change the <code>text-transform</code> to
-                        <code>uppercase</code></li>
-                    <ul>
-                        <li>Run code</li>
-                        <li>Check Code</li>
-                    </ul>
+                    <li>Check Code</li>
 
                 </ol>
                 <p>Your result should look like this:</p>
-                <img src="../assets/images/chal3example.png" alt="">
+                <img src="../assets/images/chal4example.png" alt="">
             </div>
         </div>
     </div>
 
-    <div class="row d-none">
-        <div class="col">
-            <button id="checkButton" class="btn btn-primary">Check Code</button>
-        </div>
-        <div class="col">
-            <div id="feedback"></div>
-        </div>
-    </div>
-
-    <script src="../assets/js/chal3.js"></script>
+    <script src="../assets/js/chal4.js"></script>
 </body>
 
 </html>

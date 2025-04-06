@@ -30,6 +30,9 @@ document.getElementById("runButton").addEventListener("click", () => {
     iframeDocument.close();
 });
 
+// Hide the "Next" button initially
+document.getElementById("nextButton").style.display = "none";
+
 // Check Code Button
 document.getElementById("checkButton").addEventListener("click", () => {
     const userCode = editor.getValue();
@@ -38,6 +41,8 @@ document.getElementById("checkButton").addEventListener("click", () => {
     // Check for the required content
     if (userCode.includes("<h1>Hello, World!</h1>") && userCode.includes("<p>This is my first webpage</p>")) {
         feedback = `<div class="alert alert-success" role="alert">Great job! You've completed the challenge! move on to the next one.</div>`;
+        // Show the "Next" button
+        document.getElementById("nextButton").style.display = "block";
     } else {
         feedback = `<div class="alert alert-danger" role="alert">Hmm, something's not right. Remember to write the correct text in the h1 and p elements.</div>`;
     }
